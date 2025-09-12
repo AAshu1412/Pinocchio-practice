@@ -2,6 +2,8 @@
 
 use pinocchio::{account_info::AccountInfo, entrypoint, instruction, nostd_panic_handler, program_entrypoint, program_error::ProgramError, pubkey::Pubkey, ProgramResult};
 
+use crate::instructions::{Deposit, Withdraw};
+
 pub mod instructions;
 
 // 22222222222222222222222222222222222222222222
@@ -17,5 +19,9 @@ entrypoint!(process_instruction);
 nostd_panic_handler!();
 
 fn process_instruction (_program_id:&Pubkey, accounts: &[AccountInfo], instruction_data: &[u8] )-> ProgramResult {
-    Ok(())
+    match instruction_data.split_first() {
+        Some((Deposit::DISCRIMINATOR, data)) => Deposit::try_from((data,accounts))?.process(),
+        Some((Withdraw::DISCRIMINATOR, _)) => Withdraw::try_from(accounts)?.process(),
+        _=> Err(ProgramError::InvalidInstructionData)
+    }
 }
