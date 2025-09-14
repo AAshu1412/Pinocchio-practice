@@ -1,0 +1,13 @@
+[package]
+name = "bhrt"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+pinocchio = "0.9.0"
+pinocchio-system = "0.3.0"
+pinocchio-token-2022 = "0.1.0"
+constant-product-curve = { git = "https://github.com/deanmlittle/constant-product-curve.git"}
+
+[lib]
+create-type = ["lib", "cdylib"]
