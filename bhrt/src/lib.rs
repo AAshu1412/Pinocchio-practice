@@ -4,7 +4,8 @@ use pinocchio::{account_info::AccountInfo, entrypoint, instruction, nostd_panic_
 
 // use crate::instructions::{Deposit, Withdraw};
 
-// pub mod instructions;
+pub mod instructions;
+pub mod states;
 
 // 22222222222222222222222222222222222222222222
 pub const ID: Pubkey = [

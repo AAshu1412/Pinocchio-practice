@@ -8,6 +8,8 @@ pinocchio = "0.9.0"
 pinocchio-system = "0.3.0"
 pinocchio-token-2022 = "0.1.0"
 constant-product-curve = { git = "https://github.com/deanmlittle/constant-product-curve.git"}
+shank = "0.4.2"
+bytemuck = { version = "1.23.0", features = ["derive"] }
 
 [lib]
 create-type = ["lib", "cdylib"]
