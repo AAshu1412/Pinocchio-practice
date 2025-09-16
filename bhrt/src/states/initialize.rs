@@ -68,6 +68,8 @@ impl<'a> TryFrom<&'a [AccountInfo]> for InitializeAccounts<'a> {
         }
         .invoke_signed(&program_state_signers)?;
 
+        
+
         InitializeMint2 {
             mint: bhrt_mint,
             decimals: 9,
@@ -76,7 +78,7 @@ impl<'a> TryFrom<&'a [AccountInfo]> for InitializeAccounts<'a> {
             token_program: &TOKEN_PROGRAM_ID,
         }.invoke()?;
 
-        
+
 
         // if !vault.is_owned_by(&pinocchio_system::ID) {
         //     return Err(ProgramError::InvalidAccountOwner);
